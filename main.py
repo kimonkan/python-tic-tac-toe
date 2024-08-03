@@ -16,13 +16,20 @@ def markerAssignment():
     print("\nPlayer 1 will go first!\n")
     return player1, player2
 
-def initializeBoard():
-    return [[" " for _ in range(3)] for _ in range(3)]
-
 def displayBoard(board):
-    for row in board:
-        print("|".join(row))
-        print("-" * 5) #Separator line between rows
+    print("\n" * 100)
+
+    print("   |   |")
+    print(" " + board[7] + " | " + board[8] + " | " + board[9])
+    print("   |   |")
+    print("----------")
+    print("   |   |")
+    print(" " + board[4] + " | " + board[5] + " | " + board[6])
+    print("   |   |")
+    print("----------")
+    print("   |   |")
+    print(" " + board[1] + " | " + board[2] + " | " + board[3])
+    print("   |   |")
 
 ########################################## GAME STARTING ################################################
 print("\nHello there! This is a classic game of Tic Tac Toe.")
@@ -40,6 +47,7 @@ if start_question == "N":
 while start_question == "Y":
     player1, player2 = markerAssignment()
 
-    board = initializeBoard()
+    board = ["#", "X", "O", "X", "O", "X", "O", "X", "O", "X"]
+
     displayBoard(board)
     break
