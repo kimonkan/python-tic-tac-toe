@@ -63,7 +63,7 @@ while start_question == "Y":
     player1, player2 = markerAssignment()
 
     turn = turnPicker()
-    print(turn + "will go first.")
+    print(turn + "will go first!")
 
     test_board = ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
