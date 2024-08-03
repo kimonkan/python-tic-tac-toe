@@ -1,18 +1,20 @@
 ############################################ IMPORTING ####################################################
+
 import random
 
 ####################################### DEFINING FUNCTIONS ################################################
-def gameStartingMessage():
+
+def game_starting_message():
     start_question = input("Do you want to play?(Y/N)").upper()
     return start_question
 
-def turnPicker():
+def turn_picker():
     if random.randint(0,1) == 0:
         return "Player 1"
     else:
         return "Player 2"
 
-def markerAssignment():
+def marker_assignment():
     player1 = input("Player 1: Do you want to be X or O?").upper()
     while player1 != "X" and player1 != "O":
         player1 = input("Invalid choice. Player 1: Do you want to be X or O? ").upper()
@@ -24,10 +26,10 @@ def markerAssignment():
         print("\nPlayer 2 will be X.")
     return player1, player2
 
-def markerPlacement(board, marker, position):
+def marker_placement(board, marker, position):
     board[position] = marker
 
-def winCondition(board, mark, player_turn):
+def win_condition(board, mark, player_turn):
     return ((board[1] == mark and board[2] == mark and board[3] == mark) or #across the bottom
     (board[4] == mark and board[5] == mark and board[6] == mark) or #across the middle
     (board[7] == mark and board[8] == mark and board[9] == mark) or #across the top
@@ -37,7 +39,7 @@ def winCondition(board, mark, player_turn):
     (board[1] == mark and board[5] == mark and board[9] == mark) or #diagonal from bottom left to  top right
     (board[3] == mark and board[5] == mark and board[8] == mark)) #diagonal from top left to  bottom right
 
-def displayBoard(board):
+def display_board(board):
     print("\n" * 100)
 
     print("   |   |")
@@ -52,12 +54,12 @@ def displayBoard(board):
     print(" " + board[1] + " | " + board[2] + " | " + board[3])
     print("   |   |")
 
-def spaceCheck(board, position):
+def space_check(board, position):
     return board[position] == " "
 
-def fullBoardCheck(board):
+def full_board_check(board):
     for i in range(0,len(board)):
-        if spaceCheck(board, i):
+        if space_check(board, i):
             return False
     return True
 
@@ -65,24 +67,24 @@ def fullBoardCheck(board):
 print("\nHello there! This is a classic game of Tic Tac Toe.")
 print("This game is meant to be played by 2 human players on the same computer.\n")
 
-start_question = gameStartingMessage()
+start_question = game_starting_message()
 
 while start_question != "Y" and start_question != "N":
-    start_question = gameStartingMessage()
+    start_question = game_starting_message()
 
 ########################################## GAME RUNNING ################################################
 if start_question == "N":
     print("Your loss!")
 
 while start_question == "Y":
-    player1, player2 = markerAssignment()
+    player1, player2 = marker_assignment()
 
-    turn = turnPicker()
+    turn = turn_picker()
     print(turn + "will go first!")
 
     test_board = ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-    print(markerPlacement(test_board, "X", 8))
-    displayBoard(test_board)
+    print(marker_placement(test_board, "X", 8))
+    display_board(test_board)
 
     break
