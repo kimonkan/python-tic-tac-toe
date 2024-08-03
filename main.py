@@ -28,6 +28,7 @@ def markerPlacement(board, marker, position):
     board[position] = marker
 
 def winCondition(board, mark):
+
     pass
 
 def displayBoard(board):
@@ -62,8 +63,9 @@ while start_question == "Y":
     player1, player2 = markerAssignment()
 
     turn = turnPicker()
+    print(turn + "will go first.")
 
-    test_board = ["#", "X", "O", "X", "O", "X", "O", "X", "O", "X"]
+    test_board = ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
     displayBoard(test_board)
     break
