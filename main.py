@@ -55,6 +55,12 @@ def displayBoard(board):
 def spaceCheck(board, position):
     return board[position] == " "
 
+def fullBoardCheck(board):
+    for i in range(0,len(board)):
+        if spaceCheck(board, i):
+            return False
+    return True
+
 ########################################## GAME STARTING ################################################
 print("\nHello there! This is a classic game of Tic Tac Toe.")
 print("This game is meant to be played by 2 human players on the same computer.\n")
