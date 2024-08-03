@@ -27,7 +27,7 @@ def markerAssignment():
 def markerPlacement(board, marker, position):
     board[position] = marker
 
-def winCondition(board, mark):
+def winCondition(board, mark, player_turn):
     return ((board[1] == mark and board[2] == mark and board[3] == mark) or #across the bottom
     (board[4] == mark and board[5] == mark and board[6] == mark) or #across the middle
     (board[7] == mark and board[8] == mark and board[9] == mark) or #across the top
@@ -52,6 +52,9 @@ def displayBoard(board):
     print(" " + board[1] + " | " + board[2] + " | " + board[3])
     print("   |   |")
 
+def spaceCheck(board, position):
+    return board[position] == " "
+
 ########################################## GAME STARTING ################################################
 print("\nHello there! This is a classic game of Tic Tac Toe.")
 print("This game is meant to be played by 2 human players on the same computer.\n")
@@ -73,5 +76,7 @@ while start_question == "Y":
 
     test_board = ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
+    print(markerPlacement(test_board, "X", 8))
     displayBoard(test_board)
+
     break
