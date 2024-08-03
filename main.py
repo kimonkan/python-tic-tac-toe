@@ -1,7 +1,5 @@
 ####################################### DEFINING FUNCTIONS ################################################
 def gameStartingMessage():
-    print("\nHello there! This is a classic game of Tic Tac Toe.")
-    print("This game was created to be played by 2 human players on the same computer.\n")
     start_question = input("Do you want to play?(Y/N)").upper()
     return start_question
 
@@ -18,14 +16,22 @@ def markerAssignment():
     print("\nPlayer 1 will go first!")
     return player1, player2
 
-########################################## GAME RUNNING ################################################
+def displayBoard(board):
+    pass
+
+########################################## GAME STARTING ################################################
+print("\nHello there! This is a classic game of Tic Tac Toe.")
+print("This game is meant to be played by 2 human players on the same computer.\n")
 
 start_question = gameStartingMessage()
 
 while start_question != "Y" and start_question != "N":
     start_question = gameStartingMessage()
 
-if start_question == "Y":
+########################################## GAME RUNNING ################################################
+while start_question == "Y":
     player1, player2 = markerAssignment()
-elif start_question == "N":
-    print("Your loss :D")
+    break
+
+if start_question == "N":
+    print("Your loss!")
