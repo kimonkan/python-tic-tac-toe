@@ -1,7 +1,16 @@
+############################################ IMPORTING ####################################################
+import random
+
 ####################################### DEFINING FUNCTIONS ################################################
 def gameStartingMessage():
     start_question = input("Do you want to play?(Y/N)").upper()
     return start_question
+
+def turnPicker():
+    if random.randint(0,1) == 0:
+        return "Player 1"
+    else:
+        return "Player 2"
 
 def markerAssignment():
     player1 = input("Player 1: Do you want to be X or O?").upper()
@@ -13,8 +22,13 @@ def markerAssignment():
     else:
         player2 = "X"
         print("\nPlayer 2 will be X.")
-    print("\nPlayer 1 will go first!\n")
     return player1, player2
+
+def markerPlacement(board, marker, position):
+    board[position] = marker
+
+def winCondition(board, mark):
+    pass
 
 def displayBoard(board):
     print("\n" * 100)
@@ -47,7 +61,9 @@ if start_question == "N":
 while start_question == "Y":
     player1, player2 = markerAssignment()
 
-    board = ["#", "X", "O", "X", "O", "X", "O", "X", "O", "X"]
+    turn = turnPicker()
 
-    displayBoard(board)
+    test_board = ["#", "X", "O", "X", "O", "X", "O", "X", "O", "X"]
+
+    displayBoard(test_board)
     break
