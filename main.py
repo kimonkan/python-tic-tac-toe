@@ -28,8 +28,14 @@ def markerPlacement(board, marker, position):
     board[position] = marker
 
 def winCondition(board, mark):
-
-    pass
+    return ((board[1] == mark and board[2] == mark and board[3] == mark) or #across the bottom
+    (board[4] == mark and board[5] == mark and board[6] == mark) or #across the middle
+    (board[7] == mark and board[8] == mark and board[9] == mark) or #across the top
+    (board[1] == mark and board[4] == mark and board[7] == mark) or #across the left
+    (board[2] == mark and board[5] == mark and board[8] == mark) or #across the middle
+    (board[3] == mark and board[6] == mark and board[9] == mark) or #across the right
+    (board[1] == mark and board[5] == mark and board[9] == mark) or #diagonal from bottom left to  top right
+    (board[3] == mark and board[5] == mark and board[8] == mark)) #diagonal from top left to  bottom right
 
 def displayBoard(board):
     print("\n" * 100)
