@@ -66,7 +66,7 @@ def full_board_check(board):
 def player_choice(board):
     position = 0
 
-    while position not in range(1, 9) or not space_check(board, position):
+    while position not in range(1, 10) or not space_check(board, position):
         position = int(input("Choose your next position: (1-9)"))
 
     return position
@@ -119,9 +119,9 @@ while start_question == "Y":
         else:
             display_board(board)
             position = player_choice(board)
-            placement = marker_placement(board, player1, position)
+            placement = marker_placement(board, player2, position)
 
-            if win_condition(board, player1, turn):
+            if win_condition(board, player2, turn):
                 display_board(board)
                 print("Congratulations Player 2, you have won!")
                 game_on = False
