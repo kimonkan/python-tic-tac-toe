@@ -37,7 +37,7 @@ def win_condition(board, mark, player_turn):
     (board[2] == mark and board[5] == mark and board[8] == mark) or #across the middle
     (board[3] == mark and board[6] == mark and board[9] == mark) or #across the right
     (board[1] == mark and board[5] == mark and board[9] == mark) or #diagonal from bottom left to  top right
-    (board[3] == mark and board[5] == mark and board[8] == mark)) #diagonal from top left to  bottom right
+    (board[3] == mark and board[5] == mark and board[7] == mark)) #diagonal from top left to  bottom right
 
 def display_board(board):
     print("\n" * 100)
@@ -58,7 +58,7 @@ def space_check(board, position):
     return board[position] == " "
 
 def full_board_check(board):
-    for i in range(0,len(board)):
+    for i in range(1, 10):
         if space_check(board, i):
             return False
     return True
