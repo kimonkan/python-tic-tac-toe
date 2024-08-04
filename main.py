@@ -87,18 +87,49 @@ if start_question == "N":
     print("Your loss!")
 
 while start_question == "Y":
-    game = True
-    while game:
-        player1, player2 = marker_assignment()
+    game_on = True
 
-        turn = turn_picker()
-        print(turn + "will go first!")
+    board = [" "] * 10
 
-        test_board = [" "] * 10
+    player1, player2 = marker_assignment()
 
-        print(marker_placement(test_board, "X", 8))
-        display_board(test_board)
+    turn = turn_picker()
+    print(turn + "will go first!")
 
+    while game_on:
 
+        if turn == "Player 1":
 
+            display_board(board)
+            position = player_choice(board)
+            placement = marker_placement(board, player1, position)
+
+            if win_condition(board, player1, turn):
+                display_board(board)
+                print("Congratulations Player 1, you have won!")
+                game_on = False
+            else:
+                if full_board_check(board):
+                    display_board(board)
+                    print("The game is a draw!")
+                    break
+                else:
+                    turn = "Player 2"
+
+        else:
+            display_board(board)
+            position = player_choice(board)
+            placement = marker_placement(board, player1, position)
+
+            if win_condition(board, player1, turn):
+                display_board(board)
+                print("Congratulations Player 2, you have won!")
+                game_on = False
+            else:
+                if full_board_check(board):
+                    display_board(board)
+                    print("The game is a draw!")
+                    break
+                else:
+                    turn = "Player 1"
     break
