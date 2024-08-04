@@ -71,6 +71,9 @@ def player_choice(board):
 
     return position
 
+def replay():
+    return input("Do you want to play again?(Y/N)").upper().startswith("Y")
+
 ########################################## GAME STARTING ################################################
 
 print("\nHello there! This is a classic game of Tic Tac Toe.")
@@ -132,4 +135,5 @@ while start_question == "Y":
                     break
                 else:
                     turn = "Player 1"
-    break
+    if not replay():
+        break
