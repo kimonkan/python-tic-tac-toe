@@ -45,11 +45,11 @@ def display_board(board):
     print("   |   |")
     print(" " + board[7] + " | " + board[8] + " | " + board[9])
     print("   |   |")
-    print("----------")
+    print("-------------")
     print("   |   |")
     print(" " + board[4] + " | " + board[5] + " | " + board[6])
     print("   |   |")
-    print("----------")
+    print("-------------")
     print("   |   |")
     print(" " + board[1] + " | " + board[2] + " | " + board[3])
     print("   |   |")
@@ -63,7 +63,16 @@ def full_board_check(board):
             return False
     return True
 
+def player_choice(board):
+    position = 0
+
+    while position not in range(1, 9) or not space_check(board, position):
+        position = int(input("Choose your next position: (1-9)"))
+
+    return position
+
 ########################################## GAME STARTING ################################################
+
 print("\nHello there! This is a classic game of Tic Tac Toe.")
 print("This game is meant to be played by 2 human players on the same computer.\n")
 
@@ -73,18 +82,23 @@ while start_question != "Y" and start_question != "N":
     start_question = game_starting_message()
 
 ########################################## GAME RUNNING ################################################
+
 if start_question == "N":
     print("Your loss!")
 
 while start_question == "Y":
-    player1, player2 = marker_assignment()
+    game = True
+    while game:
+        player1, player2 = marker_assignment()
 
-    turn = turn_picker()
-    print(turn + "will go first!")
+        turn = turn_picker()
+        print(turn + "will go first!")
 
-    test_board = ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        test_board = [" "] * 10
 
-    print(marker_placement(test_board, "X", 8))
-    display_board(test_board)
+        print(marker_placement(test_board, "X", 8))
+        display_board(test_board)
+
+
 
     break
